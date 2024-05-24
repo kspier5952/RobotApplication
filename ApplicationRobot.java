@@ -1,10 +1,16 @@
+import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.InputEvent;
+import java.awt.event.*;
+import java.awt.Image;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File; 
+
 public class ApplicationRobot {
     public static void main(String[]args) throws Exception {
         Robot melissa = new Robot();
         melissa.delay(3000);
-        melissa.mouseMove(1300, 60);
+        /*melissa.mouseMove(1300, 60);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
         int k = 1;
@@ -43,7 +49,7 @@ public class ApplicationRobot {
         }
         melissa.keyPress(10);
         melissa.keyRelease(10);
-
+        */
         melissa.mouseMove(0, 1050);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
@@ -51,20 +57,38 @@ public class ApplicationRobot {
         melissa.mouseMove(125, 700);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        melissa.delay(500);
+        melissa.delay(3000);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        melissa.delay(500);
-        melissa.mouseMove(1250, 600);
-        melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
-        melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        melissa.delay(500);
+        melissa.delay(1000);
         melissa.mouseMove(1225, 525);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
-        melissa.delay(500);
-        melissa.mouseMove(1250, 925);
+        melissa.delay(1000);
+        melissa.mouseMove(1250, 950);
         melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
         melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.delay(1000);
+        melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseMove(750, 100);
+        melissa.delay(800);
+        melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseMove(770, 120);
+        melissa.delay(800);
+        melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseMove(770, 230);
+        melissa.delay(1000);
+        melissa.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+        melissa.delay(3000);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        Rectangle bounds = new Rectangle(screenSize);
+        BufferedImage image = melissa.createScreenCapture(bounds); 
+        File file = new File("myScreenShot.png");
+        ImageIO.write(image,"png", file);
+        System.out.println("A screenshot is captured to " + file.getPath());
     }
 }
